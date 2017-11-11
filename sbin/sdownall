@@ -1,0 +1,7 @@
+pget -k ic_host
+pget -k ic_ping
+pget -k ic_network
+
+#pget -k ic_trap
+#pget -k ic_safety
+

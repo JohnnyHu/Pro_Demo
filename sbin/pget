@@ -1,0 +1,40 @@
+
+if [ $# -ne 2 ]
+then
+        echo "Usage:"
+        echo " $0 [-k|-l|-t|-u] [进程名]"
+        echo " option: -k - 强制杀进程"
+        echo "         -l - 显示进程号"
+        echo "         -t - 中断进程"
+        echo "         -u - 发送SIGUSR信号到进程"
+        exit 1
+fi
+
+#pid=`ps -ef|grep $LOGNAME|grep -w "$2"|grep -v grep|grep -v pget|awk '{printf("%s ", $2)}'`
+cur_user=`whoami`
+pid=`ps -ef|grep ${cur_user}|grep -w "$2"|grep -v grep|grep -v pget|awk '{printf("%s ", $2)}'`
+
+if test "${pid}" = ""
+then
+        printf "no processes for $2\n"
+        exit 0
+fi
+
+case "$1" in
+        '-k') printf "killing $2 PID:$pid\n"
+                         kill -9 $pid ;;
+
+        '-l') printf "$2 PID:$pid\n" ;;
+
+        '-t') printf "terminating $2 PID:$pid\n"
+                        kill -15 $pid;;
+
+        '-u') printf "sending SIGUSR to $2 PID:$pid\n"
+                        kill -10 $pid;;
+
+        '-u1') printf "sending SIGUSR1 to $2 PID:$pid\n"
+                        kill -10 $pid;;
+
+        *)   echo "param error, no effect!";;
+esac
+

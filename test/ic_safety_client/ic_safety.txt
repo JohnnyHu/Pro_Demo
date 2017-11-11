@@ -1,0 +1,126 @@
+	// 纵向加密装置
+	syslog(LOG_ERR, "%s", "<3> 2016-03-12 20:12:23 vead01 VEAD 0 1 admin");
+	syslog(LOG_ERR, "%s", "<3> 2017-08-31 20:11:56 vead02 VEAD 0 1 jhutest");
+	syslog(LOG_ERR, "%s", "<3> 2017-08-31 20:11:56 vead03 VEAD 0 1 liutest");
+		
+	syslog(LOG_ERR, "%s", "<2> 2016-03-12 20:12:23 vead01 VEAD 0 2 shtest");
+	syslog(LOG_ERR, "%s", "<2> 2017-07-19 18:12:08 vead02 VEAD 0 2 jhutest");
+	syslog(LOG_ERR, "%s", "<2> 2017-07-22 20:18:08 vead03 VEAD 0 2 liutest");	
+	
+	syslog(LOG_ERR, "%s", "<2> 2016-03-12 20:12:23 vead01 VEAD 0 3 1");
+	syslog(LOG_ERR, "%s", "<2> 2017-07-19 12:13:01 vead01 VEAD 0 3 2");
+	syslog(LOG_ERR, "%s", "<2> 2017-07-19 18:12:03 vead02 VEAD 0 3 2");
+	syslog(LOG_ERR, "%s", "<2> 2017-07-19 15:15:01 vead03 VEAD 0 3 1");
+	syslog(LOG_ERR, "%s", "<2> 2017-07-19 18:12:06 vead03 VEAD 0 3 3");
+	
+	syslog(LOG_ERR, "%s", "<3> 2016-03-12 20:12:23 vead01 VEAD 0 4 admin");
+	syslog(LOG_ERR, "%s", "<3> 2017-08-31 13:13:52 vead02 VEAD 0 4 jhutest");	
+	syslog(LOG_ERR, "%s", "<3> 2017-08-30 20:21:55 vead03 VEAD 0 4 liutest");	
+	
+	syslog(LOG_ERR, "%s", "<3> 2016-03-12 20:12:23 vead01 VEAD 1 2 50% cpu loadavg");
+	syslog(LOG_ERR, "%s", "<3> 2017-08-31 13:13:52 vead02 VEAD 1 2 60% cpu loadavg");
+	syslog(LOG_ERR, "%s", "<3> 2017-08-30 20:21:55 vead03 VEAD 1 2 70% cpu loadavg");
+	
+	syslog(LOG_ERR, "%s", "<3> 2016-03-12 20:12:23 vead01 VEAD 1 3 65%");
+	syslog(LOG_ERR, "%s", "<3> 2017-08-31 15:19:52 vead02 VEAD 1 3 78%");
+	syslog(LOG_ERR, "%s", "<3> 2017-08-25 19:11:52 vead03 VEAD 1 3 81%");	
+	
+	syslog(LOG_ERR, "%s", "<2> 2016-03-12 20:12:23 vead01 VEAD 1 6 ETH0 down");
+	syslog(LOG_ERR, "%s", "<2> 2017-08-31 15:19:52 vead02 VEAD 1 6 ETH1 down");
+	syslog(LOG_ERR, "%s", "<2> 2017-05-19 15:19:52 vead03 VEAD 1 6 ETH3 down");
+	
+	syslog(LOG_ERR, "%s", "<2> 2016-03-12 20:12:23 vead01 VEAD 1 7 ETH1 up");
+	syslog(LOG_ERR, "%s", "<2> 2017-03-18 15:19:52 vead02 VEAD 1 7 ETH1 up");	
+	syslog(LOG_ERR, "%s", "<2> 2017-05-12 20:12:23 vead05 VEAD 1 7 ETH2 up");
+	
+	syslog(LOG_ERR, "%s", "<1> 2016-03-12 20:12:19 vead01 VEAD 1 8 BackDevice HeartBeat Lost");
+	syslog(LOG_ERR, "%s", "<1> 2017-03-18 20:12:16 vead02 VEAD 1 8 BackDevice HeartBeat Lost");
+	syslog(LOG_ERR, "%s", "<1> 2016-03-12 20:12:11 vead03 VEAD 1 8 BackDevice HeartBeat Lost");	
+	
+	syslog(LOG_ERR, "%s", "<3> 2016-03-12 20:12:23 vead01 VEAD 1 10 540 8300");
+	syslog(LOG_ERR, "%s", "<3> 2017-03-18 20:12:16 vead02 VEAD 1 10 550 8302");
+	syslog(LOG_ERR, "%s", "<3> 2016-03-12 20:12:23 vead01 VEAD 1 10 545 8303");	
+	
+	syslog(LOG_ERR, "%s", "<1> 2016-03-12 20:12:23 vead01 VEAD 2 1 1 10.1.1.1 10.1.1.1 RSA Decrypted Error");
+	syslog(LOG_ERR, "%s", "<1> 2017-03-18 20:12:16 vead02 VEAD 2 1 1 10.1.1.1 10.1.1.2 RSA Decrypted Error");
+	syslog(LOG_ERR, "%s", "<1> 2017-08-12 20:12:29 vead03 VEAD 2 1 1 10.1.1.1 10.1.1.3 RSA Decrypted Error");
+	
+	syslog(LOG_ERR, "%s", "<1> 2016-03-12 20:12:23 vead01 VEAD 2 7 8 192.168.2.200 5400 192.168.2.214 80");
+	syslog(LOG_ERR, "%s", "<1> 2016-03-12 20:12:23 vead02 VEAD 2 7 8 192.168.2.201 5400 192.168.3.214 80");
+	syslog(LOG_ERR, "%s", "<1> 2016-03-12 20:12:23 vead03 VEAD 2 7 8 192.168.2.202 5400 192.168.4.214 80");
+	
+	// 防火墙 
+	syslog(LOG_ERR, "%s", "<3> 2016-03-12 20:12:23 fw01 FW 0 1 admin 10.1.1.1");
+	syslog(LOG_ERR, "%s", "<3> 2017-03-18 20:12:16 fw02 FW 0 1 jhutest 10.1.1.2");
+	syslog(LOG_ERR, "%s", "<3> 2017-03-18 19:14:11 fw03 FW 0 1 liutest 10.1.1.3");
+	
+	syslog(LOG_ERR, "%s", "<3> 2016-03-12 20:12:23 fw01 FW 0 2 admin 10.1.1.1");
+	syslog(LOG_ERR, "%s", "<3> 2017-03-18 19:14:11 fw02 FW 0 2 jhutest 10.1.1.2");
+	syslog(LOG_ERR, "%s", "<3> 2017-03-18 15:19:52 fw03 FW 0 2 liutest 10.1.1.3");
+	
+	syslog(LOG_ERR, "%s", "<2> 2016-03-12 20:12:23 fw01 FW 0 3 shtest 10.1.1.1");
+	syslog(LOG_ERR, "%s", "<2> 2017-08-16 20:12:21 fw02 FW 0 3 jhutest 10.1.1.2");
+	syslog(LOG_ERR, "%s", "<2> 2017-03-19 20:12:29 fw03 FW 0 3 liutest 10.1.1.3");	
+	
+	syslog(LOG_ERR, "%s", "<2> 2016-03-12 20:12:23 fw01 FW 0 4 admin 10.1.1.1 Rule 20 added, permit tcp packets from 10.10.10.0/24 to 20.20.20.0/24");
+	syslog(LOG_ERR, "%s", "<2> 2017-08-16 20:12:21 fw03 FW 0 4 liutest 10.1.1.3 Rule 20 added, permit tcp packets from 10.10.11.0/24 to 20.20.21.0/24");
+	syslog(LOG_ERR, "%s", "<2> 2017-08-12 20:12:29 fw02 FW 0 4 jhutest 10.1.1.2 Rule 20 added, permit tcp packets from 10.10.12.0/24 to 20.20.22.0/24");	
+	
+	syslog(LOG_ERR, "%s", "<3> 2016-03-12 20:12:23 fw01 FW 1 1 80%");
+	syslog(LOG_ERR, "%s", "<3> 2017-08-16 20:12:21 fw02 FW 1 1 70%");
+	syslog(LOG_ERR, "%s", "<3> 2017-08-12 20:12:29 fw03 FW 1 1 89%");	
+	
+	syslog(LOG_ERR, "%s", "<3> 2016-03-12 20:12:23 fw01 FW 1 2 80%");
+	syslog(LOG_ERR, "%s", "<3> 2017-06-13 20:12:24 fw02 FW 1 2 66%");
+	syslog(LOG_ERR, "%s", "<3> 2017-08-12 20:12:13 fw03 FW 1 2 73%");	
+	
+	syslog(LOG_ERR, "%s", "<0> 2016-03-12 20:12:23 fw01 FW 1 3 Power_Supply_Error");
+	syslog(LOG_ERR, "%s", "<0> 2017-06-13 20:12:24 fw02 FW 1 3 Power_Supply_Error");
+	syslog(LOG_ERR, "%s", "<0> 2017-08-12 20:12:13 fw03 FW 1 3 Power_Supply_Error");	
+	
+	syslog(LOG_ERR, "%s", "<1> 2016-03-12 20:12:23 fw01 FW 1 4 Fan_Error");
+	syslog(LOG_ERR, "%s", "<1> 2017-06-13 20:12:24 fw02 FW 1 4 Fan_Error");
+	syslog(LOG_ERR, "%s", "<1> 2017-08-12 20:12:13 fw03 FW 1 4 Fan_Error");	
+	
+	syslog(LOG_ERR, "%s", "<1> 2016-03-12 20:12:23 fw01 FW 1 5 Temperature_Over_Limit 65°C");
+	syslog(LOG_ERR, "%s", "<1> 2017-06-13 20:12:24 fw02 FW 1 5 Temperature_Over_Limit 75°C");
+	syslog(LOG_ERR, "%s", "<1> 2017-08-12 20:12:13 fw03 FW 1 5 Temperature_Over_Limit 85°C");	
+	
+	syslog(LOG_ERR, "%s", "<2> 2016-03-12 20:12:23 fw01 FW 1 7 Eth1 Link down");
+	syslog(LOG_ERR, "%s", "<2> 2017-06-13 20:12:24 fw02 FW 1 7 Eth2 Link down");
+	syslog(LOG_ERR, "%s", "<2> 2017-08-12 20:12:13 fw03 FW 1 7 Eth3 Link down");
+	
+	syslog(LOG_ERR, "%s", "<2> 2016-03-12 20:12:23 fw01 FW 1 8 Eth1 Link up");
+	syslog(LOG_ERR, "%s", "<2> 2017-06-13 20:12:24 fw02 FW 1 8 Eth2 Link up");
+	syslog(LOG_ERR, "%s", "<2> 2017-08-12 20:12:23 fw03 FW 1 8 Eth3 Link up");	
+	
+	syslog(LOG_ERR, "%s", "<1> 2016-03-12 20:12:23 fw01 FW 3 1 TCP 10.1.1.1 4099 10.2.2.2 80");
+	syslog(LOG_ERR, "%s", "<1> 2017-03-13 20:12:23 fw02 FW 3 1 TCP 10.1.1.2 4099 10.2.2.3 80");
+	syslog(LOG_ERR, "%s", "<1> 2017-04-16 20:12:23 fw03 FW 3 1 TCP 10.1.1.3 4099 10.2.2.4 80");	
+	
+	syslog(LOG_ERR, "%s", "<1> 2016-03-12 20:12:23 fw01 FW 3 2 TCP ddos-attack 192.168.2.200 8081 192.168.2.214 80");
+	syslog(LOG_ERR, "%s", "<1> 2017-03-13 20:12:23 fw02 FW 3 2 TCP ddos-attack 192.168.2.201 8081 192.168.2.215 80");
+	syslog(LOG_ERR, "%s", "<1> 2016-03-12 20:12:23 fw03 FW 3 2 TCP ddos-attack 192.168.2.202 8081 192.168.2.216 80");
+
+	// 纵向加密装置
+	syslog(LOG_ERR, "%s", "<3> 2016-03-12 20:12:23 gddev001 FID 0 3 85%");
+	syslog(LOG_ERR, "%s", "<3> 2017-03-12 15:12:23 gddev002 FID 0 3 88%");
+	syslog(LOG_ERR, "%s", "<3> 2017-06-12 14:12:23 gddev003 FID 0 3 82%");
+	
+	syslog(LOG_ERR, "%s", "<3> 2016-03-12 20:12:23 gddev001 FID 0 4 75%");
+	syslog(LOG_ERR, "%s", "<3> 2017-03-12 21:12:23 gddev002 FID 0 4 85%");
+	syslog(LOG_ERR, "%s", "<3> 2017-03-12 20:12:23 gddev003 FID 0 4 95%");
+	
+	syslog(LOG_ERR, "%s", "<3> 2016-03-12 20:12:23 gddev001 FID 0 5 root system_login");
+	syslog(LOG_ERR, "%s", "<3> 2017-06-17 21:12:23 gddev002 FID 0 5 jhutest system_login");
+	syslog(LOG_ERR, "%s", "<3> 2017-04-16 20:12:23 gddev003 FID 0 5 liutest system_login");
+	
+	syslog(LOG_ERR, "%s", "<2> 2016-03-12 20:12:23 gddev001 FID 0 6 policy change");
+	syslog(LOG_ERR, "%s", "<2> 2017-06-17 20:13:22 gddev002 FID 0 6 policy change");
+	syslog(LOG_ERR, "%s", "<2> 2017-04-12 20:12:23 gddev003 FID 0 6 policy change");
+	
+	syslog(LOG_ERR, "%s", "<1> 2016-03-12 20:12:23 gddev001 FID 2 1 TCP 10.10.10.1 4099 10.10.30.2 80");
+	syslog(LOG_ERR, "%s", "<1> 2017-07-12 20:12:23 gddev002 FID 2 1 TCP 10.10.10.2 4099 10.10.30.3 80");
+	syslog(LOG_ERR, "%s", "<1> 2017-08-12 20:12:23 gddev003 FID 2 1 TCP 10.10.10.3 4099 10.10.30.4 80");
+	
+	

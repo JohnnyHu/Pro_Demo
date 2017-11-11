@@ -1,0 +1,16 @@
+. ~/.bash_profile
+echo -e "\nPro_Demo service reboot begin......\n"
+
+sh ${BASE_HOME}/sbin/ic_syslog_conf.sh
+sh ${BASE_HOME}/sbin/ic_trap_conf.sh
+sdownall
+
+cd ${BASE_HOME}/target/bin
+./ic_host    >>  /var/log/ic_start.log	2>&1  &
+./ic_ping    >>  /var/log/ic_start.log	2>&1  &
+./ic_network >>  /var/log/ic_start.log	2>&1  &
+#./ic_trap 		&
+#./ic_safety 	&
+
+echo -e "\nPro_Demo service reboot end......\n"
+

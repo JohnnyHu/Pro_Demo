@@ -1,0 +1,17 @@
+#!/bin/ksh
+
+if [ $# -ne 1 ]; then
+	echo "usage: gkill pname"
+	exit 1
+fi
+
+pgids=$(ps -C $1 -o pgid=)
+echo pgids[$pgids]
+if [ -z "$pgids" ]; then
+	echo "pgids is null"
+	exit 0
+fi
+for pgid in $pgids
+do
+	pkill -9 -g $pgid
+done

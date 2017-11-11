@@ -1,0 +1,72 @@
+####### ic_network操作说明 ############
+#######1 snmp-v2c 配置交换机(华为交换机(S5720S-28X-SI_AC为例)：
+<1> 登录交换机(串口：abcd123456)  （注：串口首次登录时需要设置密码）
+<2> 清空配置: 见《S1720&S2700&S3700&S5700&S6700&S7700&S9700_常见操作指南(pdf)》的章节 2.5-清空配置
+<3> SNMP配置：见《...常见操作指南(pdf)》20.1 配置访问控制; 20.2 配置 SNMP 的版本和团体名（注：选v2c版本）
+<4> 配置交换机对应的IP地址:
+<HUAWEI>system-view 
+Enter system view, return user view with Ctrl+Z.
+[HUAWEI]interface Vlanif 1
+[HUAWEI-Vlanif1]
+[HUAWEI-Vlanif1]ip address 192.168.1.1 255.255.255.0 
+[HUAWEI-Vlanif1]
+Sep  5 2017 15:19:12 HUAWEI %%01RM/4/ROUTERID_CHANGE(l)[0]:The router ID is 192.168.1.1. (InstanceID=0)
+[HUAWEI-Vlanif1]
+Sep  5 2017 15:19:12 HUAWEI %%01IFNET/4/LINK_STATE(l)[1]:The line protocol IP on the interface Vlanif1 has entered the UP state.
+Sep  5 2017 15:19:13 HUAWEI DS/4/DATASYNC_CFGCHANGE:OID 1.3.6.1.4.1.2011.5.25.191.3.1 configurations have been changed. The current change number is 8, the change loop count is 0, and the maximum number of records is 4095.
+[HUAWEI-Vlanif1]
+注：这里在Vlanif1上配置其IP为192.168.1.1, 这样192.168.1.xxx网段的主机都可以互相ping通。
+
+<5> 测试是否能够访问交换机：
+(1). ping交换机的IP; 交换机ping主机IP路由是否可达; (2). 发送snmp查询命令。
+注：snmp查询命令：
+snmpwalk -v 2c -c community001 192.168.1.25 system.sysDescr.0
+snmpwalk -v 2c -c community001 192.168.1.25 interfaces.ifNumber
+snmpwalk -v 2c -c community001 192.168.1.25 .1.3.6.1.2.1.2.2.1.8
+
+
+#######2 snmp-v3 配置交换机(华为交换机(S5720S-28X-SI_AC为例)：
+<3> SNMP配置：见《...常见操作指南(pdf)》20.1 配置访问控制; 20.3 配置用户组和用户名
+snmpwalk -v3 -u user001 -l authPriv -a SHA -A abcd123456 -x AES -X abcd123456 192.168.1.25 system.sysDescr.0
+<4> 查看华为交换机的电子标签信息：<HUAWEI>display elabel
+	查看华为交换机的版本信息：    <HUAWEI>display version
+
+##### AES is not OK
+snmpwalk -v3 -u user001 -l authPriv -a SHA -A abcd123456 -x AES -X abcd123456 192.168.1.25  .1.3.6.1.2.1.2.2.1.8
+snmpwalk -v3 -u user001 -l authPriv -a SHA -A mysha123 -x AES -X myaes123 192.168.1.25  ".1.3.6.1.2.1.2.2.1.8"
+
+##### DES is OK
+snmpwalk -v3 -u user002 -l authPriv -a SHA -A abcd123456 -x DES -X abcd123456 192.168.1.25  .1.3.6.1.2.1.2.2.1.8
+
+
+#######3 Trap_v2c版本配置(华为交换机(S5720S-28X-SI_AC为例)：
+# SNMP-Trap-v2c版本配置：见《...常见操作指南(pdf)》20.4 配置发送 Trap
+
+# 打开Trap开关
+snmp-agent trap enable feature-name snmp
+### 操作示例：
+[HUAWEI]snmp-agent trap enable  
+Warning: All switches of SNMP trap/notification will be open. Continue? [Y/N]:
+Error: Please choose 'YES' or 'NO' first before pressing 'Enter'. [Y/N]:y
+
+# 显示接口信息
+display interface Vlanif1
+
+# 配置发送Trap的接口为Vlanif1(Vlanif1 已经配置好了IP)
+snmp-agent trap source Vlanif 1
+
+# 配置Trap报文发送的主机(community001 换成其他的？？？)：
+snmp-agent target-host trap address udp-domain 192.168.1.101 udp-port 162 params securityname community001 v2c
+
+####
+通过如下命令，查看配置的Trap参数配置结果是否正确：
+执行命令display current-configuration | include trap，查看Trap配置信息。
+执行命令display snmp-agent trap all，查看所有特性下所有Trap开关当前的状态和缺省状态。
+执行命令display snmp-agent target-host，查看目标主机的信息。
+
+
+#### 问题记录 #####
+1. 配置发送特定的Trap信息
+2. 接收Trap消息的snmptrapd如何过滤解析消息？
+3. 
+
