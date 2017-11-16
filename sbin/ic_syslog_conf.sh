@@ -5,6 +5,8 @@
 # Note: 
 #	<1> 运行该脚本, 需开启Root权限
 # 	<2> rsyslog运行子程序(开启omprog)需关闭SElinux
+# Modify:
+#  2017-11-16 修改接收到信息时的过滤条件，默认接收所有local过来的信息
 
 gen_conf_context()
 {
@@ -38,21 +40,27 @@ gen_conf_context()
 	echo ""
 
 	echo "# A template which log file save name"
-	echo '$template Remote_ICS_Logs, "/var/log/ic_safety_client.log"'
-	echo '*.* ?Remote_ICS_Logs;ic_safety_tmpl_2'
+	echo '$template Remote_ICS_Logs, "/var/log/ic_safety_server.log"'
+	#echo 'local3.* ?Remote_ICS_Logs;ic_safety_tmpl_2'
+	#echo '*.* ?Remote_ICS_Logs;ic_safety_tmpl_2'
+	echo ':syslogfacility-text, startswith, "local" ?Remote_ICS_Logs;ic_safety_tmpl_2'
 	echo ""
-		
-    echo "# Provides output logs to a specified program"
-    echo '$ModLoad  omprog'
-    echo -n '$ActionOMProgBinary ' 
-    echo "$BASE_HOME/target/bin/ic_safety" 
-    echo '*.*  :omprog:;ic_safety_tmpl_2'
-    echo ""
+
+	echo "# Provides output logs to a specified program"
+	echo '$ModLoad  omprog'
+	echo -n '$ActionOMProgBinary ' 
+	echo "$BASE_HOME/target/bin/ic_safety" 
+	#echo 'local3.*  :omprog:;ic_safety_tmpl_2'
+	#echo '*.*  :omprog:;ic_safety_tmpl_2'
+	echo ':syslogfacility-text, startswith, "local" :omprog:;ic_safety_tmpl_2'
+	echo ""
 
 	echo "# Stop logging handle again"
-	echo '& ~'
+	#echo 'local3.* ~'
+	echo ':syslogfacility-text, startswith, "local" ~'
 	echo ""
 }
+
 
 shellName=`basename $0.sh`
 
